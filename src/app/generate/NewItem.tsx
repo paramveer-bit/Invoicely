@@ -84,7 +84,7 @@ function NewItem({addNewItem}:{addNewItem : (item:itemSchema) => void}) {
             total: total
         }
         console.log(newItemData)
-        setItems([newItemData,...(items ?? [])])
+        setItems([...(items ?? []),newItemData])
         resetForm()
     }
 
@@ -188,7 +188,7 @@ function NewItem({addNewItem}:{addNewItem : (item:itemSchema) => void}) {
                             </td>
                             
                             {/* IGST */}
-                            <td className='w-[8%]'>
+                            <td className='w-[8%] overflow-hidden'>
                                 {
                                 igst===0?
                                     <Input placeholder="IGST" onChange={(e)=>debouncedIgst(+e.target.value)} value={igst}/>
@@ -208,7 +208,7 @@ function NewItem({addNewItem}:{addNewItem : (item:itemSchema) => void}) {
                             </td>
 
                             {/* SGST */}
-                            <td className='w-[8%]'>
+                            <td className='w-[8%] overflow-hidden'>
                                 {
                                 sgst===0?
                                     <Input placeholder="SGST" onChange={(e)=>debouncedSgst(+e.target.value)} value={sgst}/>
@@ -228,7 +228,7 @@ function NewItem({addNewItem}:{addNewItem : (item:itemSchema) => void}) {
                             </td>
 
                             {/* CGST */}
-                            <td className='w-[8%]'>
+                            <td className='w-[8%] overflow-hidden'>
                             {
                                 cgst===0?
                                     <Input placeholder="CGST" onChange={(e)=>debouncedCgst(+e.target.value)} value={cgst}/>
